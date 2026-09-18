@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>autogrupapietrzak.pl - porownanie zdjec przed i po kompresji</title>
+<style>
+:root{--ink:#1c1a17;--mut:#6b655c;--acc:#2f5d3a;--bg:#f6f8f3;--line:#dfe5d8}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:#fff;border-bottom:1px solid var(--line);padding:22px 0}
+.in{max-width:1080px;margin:0 auto;padding:0 16px}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:34px 0 10px}
+.tag{display:inline-block;background:#e6f1e2;color:var(--acc);border:1px solid #bfd6b6;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600;margin-bottom:8px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:1.5rem;color:var(--acc)}.kpi span{color:var(--mut);font-size:.85rem}
+.cmp{margin:18px 0 26px}.wrap{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#000;aspect-ratio:2/1}
+.wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.wrap .a{position:absolute;top:0;left:0;bottom:0;overflow:hidden;border-right:3px solid #fff;box-shadow:2px 0 6px rgba(0,0,0,.4)}
+.wrap .a img{height:100%;object-fit:cover}
+.wrap input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.lab{position:absolute;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.78rem;padding:3px 8px;border-radius:6px}.lab.l{left:10px}.lab.r{right:10px}
+figcaption{font-size:.82rem;color:var(--mut);margin-top:6px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:.85rem}th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}th{background:#edf2e9;font-weight:600}
+.dl a{display:inline-block;margin:6px 8px 6px 0;padding:10px 16px;background:var(--acc);color:#fff;text-decoration:none;border-radius:8px;font-weight:600}
+.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc);padding:12px 16px;border-radius:8px;margin:14px 0}
+footer{color:var(--mut);font-size:.8rem;padding:30px 16px}
+@media(max-width:600px){.wrap{aspect-ratio:3/2}}
+</style></head><body>
+<header><div class="in"><span class="tag">wersja robocza - porownanie</span><h1>autogrupapietrzak.pl - zdjecia strony glownej przed i po kompresji</h1>
+<div style="color:var(--mut)">Przygotowal: inz. Lukasz Stasiak, 18.09.2026. Te same zdjecia, ten sam uklad strony - zmienia sie tylko waga plikow.</div></div></header>
+<div class="in">
+<div class="kpi">
+<div><b>7,6 MB</b><span>32 zdjec strony glownej dzis (zmierzone 18.09.2026)</span></div>
+<div><b>5,3 MB</b><span>zestaw A: ten sam rozmiar w pikselach, zoptymalizowany JPEG (-30%)</span></div>
+<div><b>2,5 MB</b><span>zestaw B: wersja na telefon, 960 px szerokosci (-67%)</span></div>
+<div><b>1,1 MB</b><span>zestaw B w formacie WebP (-86%)</span></div>
+</div>
+<div class="note">Co to znaczy w praktyce: przy LTE poza miastem (ok. 8 Mb/s, czyli 1 MB na sekunde) same zdjecia strony glownej pobieraja sie dzis ok. 7,6 s; po zamianie na zestaw B ok. 2,5 s, w WebP ok. 1,1 s. To wyliczenie z rozmiarow plikow, nie pomiar na konkretnym telefonie.</div>
+
+<h2>Suwak przed / po (4 najwieksze zdjecia)</h2>
+<p style="color:var(--mut)">Przesun suwak w lewo i w prawo. Po prawej jest wersja "na telefon" - najmocniej zmniejszona, wiec jesli tu nie widac roznicy, w zestawie A tym bardziej jej nie bedzie.</p>
+
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/slajd-glowna.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/slajd-glowna.png" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 1743 KB</div><div class="lab r">PO 45 KB (telefon)</div></div>
+  <figcaption>slajd-glowna.png - 1640x1040 px, na telefon 960x609 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/GLOWNA-cupra.png" alt="po"><div class="a" style="width:50%"><img src="przed/GLOWNA-cupra.png" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 739 KB</div><div class="lab r">PO 462 KB (telefon)</div></div>
+  <figcaption>GLOWNA-cupra.png - 1267x728 px, na telefon 960x552 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/slajd-glowna-1536x974.png" alt="po"><div class="a" style="width:50%"><img src="przed/slajd-glowna-1536x974.png" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 699 KB</div><div class="lab r">PO 267 KB (telefon)</div></div>
+  <figcaption>slajd-glowna-1536x974.png - 1536x974 px, na telefon 960x609 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+<figure class="cmp">
+  <div class="wrap"><img class="b" src="B_telefon_960/wal_172619_ii-street-7583585-scaled.jpg" alt="po"><div class="a" style="width:50%"><img src="przed/wal_172619_ii-street-7583585-scaled.jpg" alt="przed"></div><input type="range" min="0" max="100" value="50" aria-label="suwak przed/po"><div class="lab l">PRZED 460 KB</div><div class="lab r">PO 59 KB (telefon)</div></div>
+  <figcaption>wal_172619_ii-street-7583585-scaled.jpg - 2560x1748 px, na telefon 960x656 px. Lewa strona suwaka: oryginal, prawa: po kompresji.</figcaption>
+</figure>
+
+<h2>Wszystkie pliki (KB)</h2>
+<div style="overflow-x:auto"><table><thead><tr><th>plik</th><th>wymiary</th><th>dzis</th><th>A pelny</th><th>B telefon</th><th>B WebP</th></tr></thead><tbody><tr><td>slajd-glowna.png</td><td>1640x1040</td><td>1743</td><td>98</td><td>45</td><td>23</td></tr><tr><td>GLOWNA-cupra.png</td><td>1267x728</td><td>739</td><td>697</td><td>462</td><td>83</td></tr><tr><td>slajd-glowna-1536x974.png</td><td>1536x974</td><td>699</td><td>613</td><td>267</td><td>83</td></tr><tr><td>wal_172619_ii-street-7583585-scaled.jpg</td><td>2560x1748</td><td>460</td><td>425</td><td>59</td><td>37</td></tr><tr><td>riedelmeier-bmw-1216469-scaled.jpg</td><td>2560x1707</td><td>435</td><td>405</td><td>72</td><td>46</td></tr><tr><td>hasselqvist-fog-8208493-scaled.jpg</td><td>2560x1440</td><td>392</td><td>373</td><td>44</td><td>21</td></tr><tr><td>slajd-glowna-1024x649.png</td><td>1024x649</td><td>330</td><td>286</td><td>254</td><td>74</td></tr><tr><td>ZET_5187-2048x1363.jpg</td><td>2048x1363</td><td>314</td><td>233</td><td>56</td><td>32</td></tr><tr><td>wal_172619_ii-street-7583585-2048x1398.jpg</td><td>2048x1398</td><td>298</td><td>275</td><td>58</td><td>36</td></tr><tr><td>riedelmeier-bmw-1216469-2048x1365.jpg</td><td>2048x1365</td><td>288</td><td>269</td><td>72</td><td>45</td></tr><tr><td>hasselqvist-fog-8208493-2048x1152.jpg</td><td>2048x1152</td><td>222</td><td>212</td><td>44</td><td>21</td></tr><tr><td>GLOWNA-cupra-1024x588.png</td><td>1024x588</td><td>212</td><td>185</td><td>165</td><td>100</td></tr><tr><td>slajd-glowna-768x487.png</td><td>768x487</td><td>198</td><td>170</td><td>170</td><td>53</td></tr><tr><td>ZET_5187-1536x1022.jpg</td><td>1536x1022</td><td>192</td><td>134</td><td>55</td><td>31</td></tr><tr><td>riedelmeier-bmw-1216469-1536x1024.jpg</td><td>1536x1024</td><td>173</td><td>161</td><td>71</td><td>43</td></tr><tr><td>wal_172619_ii-street-7583585-1536x1049.jpg</td><td>1536x1049</td><td>167</td><td>155</td><td>57</td><td>33</td></tr><tr><td>GLOWNA-cupra-768x441.png</td><td>768x441</td><td>126</td><td>110</td><td>110</td><td>66</td></tr><tr><td>hasselqvist-fog-8208493-1536x864.jpg</td><td>1536x864</td><td>114</td><td>110</td><td>44</td><td>20</td></tr><tr><td>ZET_5187-1024x681.jpg</td><td>1024x681</td><td>105</td><td>63</td><td>52</td><td>29</td></tr><tr><td>riedelmeier-bmw-1216469-1024x683.jpg</td><td>1024x683</td><td>86</td><td>81</td><td>68</td><td>39</td></tr><tr><td>ZET_5187-768x511.jpg</td><td>768x511</td><td>74</td><td>37</td><td>37</td><td>20</td></tr><tr><td>wal_172619_ii-street-7583585-1024x699.jpg</td><td>1024x699</td><td>71</td><td>66</td><td>53</td><td>28</td></tr><tr><td>hasselqvist-fog-8208493-1024x576.jpg</td><td>1024x576</td><td>53</td><td>51</td><td>42</td><td>19</td></tr><tr><td>riedelmeier-bmw-1216469-768x512.jpg</td><td>768x512</td><td>53</td><td>49</td><td>49</td><td>28</td></tr><tr><td>slajd-glowna-300x190.png</td><td>300x190</td><td>40</td><td>34</td><td>34</td><td>11</td></tr><tr><td>wal_172619_ii-street-7583585-768x524.jpg</td><td>768x524</td><td>38</td><td>36</td><td>36</td><td>18</td></tr><tr><td>ZET_5187-300x200.jpg</td><td>300x200</td><td>37</td><td>8</td><td>8</td><td>4</td></tr><tr><td>hasselqvist-fog-8208493-768x432.jpg</td><td>768x432</td><td>31</td><td>30</td><td>30</td><td>14</td></tr><tr><td>GLOWNA-cupra-300x172.png</td><td>300x172</td><td>26</td><td>21</td><td>21</td><td>14</td></tr><tr><td>riedelmeier-bmw-1216469-300x200.jpg</td><td>300x200</td><td>11</td><td>10</td><td>10</td><td>7</td></tr><tr><td>hasselqvist-fog-8208493-300x169.jpg</td><td>300x169</td><td>7</td><td>7</td><td>7</td><td>3</td></tr><tr><td>wal_172619_ii-street-7583585-300x205.jpg</td><td>300x205</td><td>6</td><td>6</td><td>6</td><td>3</td></tr></tbody>
+<tfoot><tr><th>razem</th><th></th><th>7740</th><th>5411</th><th>2558</th><th>1084</th></tr></tfoot></table></div>
+
+<h2>Pobranie</h2>
+<div class="dl"><a href="autogrupapietrzak_A_pelny_rozmiar.zip">Zestaw A - pelny rozmiar (JPEG)</a><a href="autogrupapietrzak_B_telefon_960.zip">Zestaw B - telefon 960 px (JPEG)</a><a href="autogrupapietrzak_B_telefon_960_webp.zip">Zestaw B - WebP</a></div>
+<div class="note"><b>Jak wgrac samodzielnie:</b> nazwy plikow sa identyczne z tymi na serwerze, wiec zestaw A mozna podmienic 1:1 w katalogu ze zdjeciami (albo wgrac przez panel strony i podpiac w tych samych miejscach). Zestaw B daje najwiekszy zysk na telefonach - najlepiej podpiac go jako wersje mobilna (srcset) albo zlecic mi: podmiana + srcset + WebP z fallbackiem to jednorazowa praca, wycena po Panstwa decyzji.</div>
+</div>
+<footer class="in">Oryginalne zdjecia sa wlasnoscia Auto Grupa Pietrzak. Porownanie przygotowane na prosbe wlasciciela 18.09.2026. Lukasz Stasiak Uslugi Edukacyjne, 21-030 Motycz 76D, NIP 713-31-03-234. tel. 888 316 564, lukasz@bibliotekanaukowa.pl</footer>
+<script>function fit(){document.querySelectorAll('.cmp').forEach(function(f){var w=f.querySelector('.wrap');f.querySelector('.a img').style.width=w.clientWidth+'px'})}document.querySelectorAll('.cmp').forEach(function(f){var a=f.querySelector('.a'),i=f.querySelector('input');i.addEventListener('input',function(){a.style.width=i.value+'%'})});window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();</script>
+</body></html>
